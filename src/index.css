@@ -50,6 +50,13 @@ p {
   background-size: cover;
 }
 
+.bg-destination {
+  background: url("./assets/destination/background-destination-tablet.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
 .bellefairFont {
   font-family: "Bellefair", serif;
 }

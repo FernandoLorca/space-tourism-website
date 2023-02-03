@@ -1,42 +1,20 @@
-import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
 
-import Navbar from "./components/navbar/Navbar"
-import Hero from "./components/home/Hero"
-import Explore from "./components/home/Explore"
-import MobileNavbar from "./components/navbar/MobileNvabar/MobileNavbar"
+import NotFound from "./pages/NotFound"
+import Home from "./pages/Home"
+import Destination from "./pages/Destination"
+import Crew from "./pages/Crew"
+import Technology from "./pages/Technology"
 
 function App() {
-  const [classNameOpen, setClassNameOpen] = useState("flex")
-  const [classNameClose, setClassNameClose] = useState("hidden")
-
-  const handleClickOpen = () => {
-    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden")
-    setClassNameClose("fixed")
-  }
-
-  const handleClickClose = () => {
-    setClassNameClose(classNameClose === "hidden" ? "" : "hidden")
-    setClassNameOpen("block")
-  }
-
   return (
-    <>
-      <MobileNavbar
-        hiddenState={classNameClose}
-        handleClickFunction={() => handleClickClose()}
-      />
-      <div className="bg-mobile h-screen p-7">
-        <Navbar
-          hiddenState={classNameOpen}
-          handleClickFunction={() => handleClickOpen()}
-        />
-
-        <main className="text-white text-center">
-          <Hero />
-          <Explore />
-        </main>
-      </div>
-    </>
+    <Routes>
+      <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/destination" element={<Destination />} />
+      <Route path="/crew" element={<Crew />} />
+      <Route path="/technology" element={<Technology />} />
+    </Routes>
   )
 }
 
