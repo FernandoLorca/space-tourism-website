@@ -10,6 +10,7 @@ import Titan from "../components/DestinationComponents/Titan";
 const Destination = () => {
   const [classNameOpen, setClassNameOpen] = useState("flex");
   const [classNameClose, setClassNameClose] = useState("hidden");
+  const [currentNavTab, setCurrentNavTab] = useState(<Moon />);
 
   const handleClickOpen = () => {
     setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden");
@@ -34,7 +35,7 @@ const Destination = () => {
             handleClickFunction={() => handleClickOpen()}
           />
 
-          <Moon />
+          <Moon currentNavTab={currentNavTab} />
 
           <Mars />
 
