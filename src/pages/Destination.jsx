@@ -30,7 +30,7 @@ const Destination = () => {
 
   const { destinations } = dataJson;
 
-  console.log(destinations);
+  // console.log(destinations);
 
   const handleClickOpen = () => {
     setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden");
@@ -42,11 +42,15 @@ const Destination = () => {
     setClassNameOpen("block");
   };
 
-  const handleDestinationNavbarClick = () => {
-    destinations.map((destination) => {
-      console.log(destination.name);
-    });
+  const destinationNameLoop = () => {
+    // const destinationsNames = destinations.map(
+    //   (destination) => destination.name
+    // );
+    // return destinationsNames;
   };
+  destinationNameLoop();
+
+  const handleDestinationNavbarClick = () => {};
 
   return (
     <>
