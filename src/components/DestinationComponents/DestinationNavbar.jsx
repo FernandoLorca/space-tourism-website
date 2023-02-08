@@ -1,30 +1,24 @@
-const DestinationNavbar = () => {
+import DestinationNavbarAnchor from "./DestinationNavbarAnchor";
+
+const DestinationNavbar = ({ onClick, destinationName }) => {
   return (
     <nav className="text-white mb-5">
       <ul className="flex justify-around">
         <li>
-          <a href="#" className="border-b-4 pb-4 text-3xl hover:opacity-75">
-            MOON
-          </a>
+          <DestinationNavbarAnchor onClick={onClick} destinationName="MOON" />
         </li>
         <li>
-          <a href="#" className="border-b-4 pb-4 text-3xl hover:opacity-75">
-            MARS
-          </a>
+          <DestinationNavbarAnchor onClick={onClick} destinationName="MARS" />
         </li>
         <li>
-          <a href="#" className="border-b-4 pb-4 text-3xl hover:opacity-75">
-            EUROPA
-          </a>
+          <DestinationNavbarAnchor onClick={onClick} destinationName="EUROPA" />
         </li>
         <li>
-          <a href="#" className="border-b-4 pb-4 text-3xl hover:opacity-75">
-            TITAN
-          </a>
+          <DestinationNavbarAnchor onClick={onClick} destinationName="TITAN" />
         </li>
       </ul>
     </nav>
-  )
-}
+  );
+};
 
-export default DestinationNavbar
+export default DestinationNavbar;

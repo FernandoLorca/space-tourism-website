@@ -30,6 +30,8 @@ const Destination = () => {
 
   const { destinations } = dataJson;
 
+  console.log(destinations);
+
   const handleClickOpen = () => {
     setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden");
     setClassNameClose("fixed");
@@ -38,6 +40,12 @@ const Destination = () => {
   const handleClickClose = () => {
     setClassNameClose(classNameClose === "hidden" ? "" : "hidden");
     setClassNameOpen("block");
+  };
+
+  const handleDestinationNavbarClick = () => {
+    destinations.map((destination) => {
+      console.log(destination.name);
+    });
   };
 
   return (
@@ -57,7 +65,10 @@ const Destination = () => {
 
           <DestinationImage imagePath="../src/assets/destination/image-moon.png" />
 
-          <DestinationNavbar />
+          <DestinationNavbar
+            onClick={handleDestinationNavbarClick}
+            destinationName="MOON"
+          />
 
           <DestinationDescription
             title="MOON"
