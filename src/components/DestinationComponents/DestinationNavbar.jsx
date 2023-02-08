@@ -1,24 +1,36 @@
-import DestinationNavbarAnchor from "./DestinationNavbarAnchor";
+import DestinationNavbarAnchor from "./DestinationNavbarAnchor"
 
-const DestinationNavbar = ({ onClick, destinationName }) => {
+const DestinationNavbar = ({ onClick, destinationNameArr }) => {
   return (
     <nav className="text-white mb-5">
       <ul className="flex justify-around">
         <li>
-          <DestinationNavbarAnchor onClick={onClick} destinationName="MOON" />
+          <DestinationNavbarAnchor
+            onClick={onClick}
+            destinationText={destinationNameArr[0]}
+          />
         </li>
         <li>
-          <DestinationNavbarAnchor onClick={onClick} destinationName="MARS" />
+          <DestinationNavbarAnchor
+            onClick={onClick}
+            destinationText={destinationNameArr[1]}
+          />
         </li>
         <li>
-          <DestinationNavbarAnchor onClick={onClick} destinationName="EUROPA" />
+          <DestinationNavbarAnchor
+            onClick={onClick}
+            destinationText={destinationNameArr[2]}
+          />
         </li>
         <li>
-          <DestinationNavbarAnchor onClick={onClick} destinationName="TITAN" />
+          <DestinationNavbarAnchor
+            onClick={onClick}
+            destinationText={destinationNameArr[3]}
+          />
         </li>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default DestinationNavbar;
+export default DestinationNavbar

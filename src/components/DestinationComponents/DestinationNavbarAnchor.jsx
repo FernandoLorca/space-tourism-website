@@ -1,7 +1,9 @@
-const DestinationNavbarAnchor = ({ onClick, destinationName }) => (
-  <a href="#" onClick={onClick} className="pb-4 text-3xl hover:opacity-75">
-    {destinationName}
-  </a>
-);
+const DestinationNavbarAnchor = ({ onClick, destinationText }) => {
+  return (
+    <a href="#" onClick={onClick} className="pb-4 text-3xl hover:opacity-75">
+      {destinationText}
+    </a>
+  )
+}
 
-export default DestinationNavbarAnchor;
+export default DestinationNavbarAnchor

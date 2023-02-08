@@ -1,56 +1,46 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
-import Navbar from "../components/navbar/Navbar";
-import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar";
-import Moon from "../components/DestinationComponents/Moon";
-import Mars from "../components/DestinationComponents/Mars";
-import Europa from "../components/DestinationComponents/Europa";
-import Titan from "../components/DestinationComponents/Titan";
-import DestinationNavbar from "../components/DestinationComponents/DestinationNavbar";
-import DestinationPick from "../components/DestinationComponents/DestinationPick";
-import DestinationImage from "../components/DestinationComponents/DestinationImage";
-import DestinationDescription from "../components/DestinationComponents/DestinationDescription";
-import DestinationDistance from "../components/DestinationComponents/DestinationDistance";
+import Navbar from "../components/navbar/Navbar"
+import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar"
+import Moon from "../components/DestinationComponents/Moon"
+import Mars from "../components/DestinationComponents/Mars"
+import Europa from "../components/DestinationComponents/Europa"
+import Titan from "../components/DestinationComponents/Titan"
+import DestinationNavbar from "../components/DestinationComponents/DestinationNavbar"
+import DestinationPick from "../components/DestinationComponents/DestinationPick"
+import DestinationImage from "../components/DestinationComponents/DestinationImage"
+import DestinationDescription from "../components/DestinationComponents/DestinationDescription"
+import DestinationDistance from "../components/DestinationComponents/DestinationDistance"
 
 const Destination = () => {
-  const [classNameOpen, setClassNameOpen] = useState("flex");
-  const [classNameClose, setClassNameClose] = useState("hidden");
-  const [dataJson, setDataJson] = useState({});
+  const [classNameOpen, setClassNameOpen] = useState("flex")
+  const [classNameClose, setClassNameClose] = useState("hidden")
+  const [dataJson, setDataJson] = useState([])
 
   const getData = async () => {
-    const res = await fetch("../src/data.json");
-    const data = await res.json();
+    const res = await fetch("../src/data.json")
+    const data = await res.json()
 
-    setDataJson(data);
-  };
+    setDataJson(data.destinations)
+  }
 
   useEffect(() => {
-    getData();
-  }, []);
+    getData()
+  }, [])
 
-  const { destinations } = dataJson;
-
-  // console.log(destinations);
+  const destinationsNamesArr = dataJson.map(destination => destination.name)
 
   const handleClickOpen = () => {
-    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden");
-    setClassNameClose("fixed");
-  };
+    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden")
+    setClassNameClose("fixed")
+  }
 
   const handleClickClose = () => {
-    setClassNameClose(classNameClose === "hidden" ? "" : "hidden");
-    setClassNameOpen("block");
-  };
+    setClassNameClose(classNameClose === "hidden" ? "" : "hidden")
+    setClassNameOpen("block")
+  }
 
-  const destinationNameLoop = () => {
-    // const destinationsNames = destinations.map(
-    //   (destination) => destination.name
-    // );
-    // return destinationsNames;
-  };
-  destinationNameLoop();
-
-  const handleDestinationNavbarClick = () => {};
+  // const handleDestinationNavbarClick = () => {}
 
   return (
     <>
@@ -70,8 +60,8 @@ const Destination = () => {
           <DestinationImage imagePath="../src/assets/destination/image-moon.png" />
 
           <DestinationNavbar
-            onClick={handleDestinationNavbarClick}
-            destinationName="MOON"
+            // onClick={handleDestinationNavbarClick}
+            destinationNameArr={destinationsNamesArr}
           />
 
           <DestinationDescription
@@ -83,7 +73,7 @@ const Destination = () => {
         </div>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default Destination;
+export default Destination
