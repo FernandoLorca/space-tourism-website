@@ -11,6 +11,18 @@ const Crew = () => {
   const [classNameOpen, setClassNameOpen] = useState("flex")
   const [classNameClose, setClassNameClose] = useState("hidden")
   const [dataJson, setDataJson] = useState([])
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeCrew, setActiveCrew] = useState([
+    {
+      name: "Douglas Hurley",
+      images: {
+        png: "./assets/crew/image-douglas-hurley.png",
+        webp: "./assets/crew/image-douglas-hurley.webp",
+      },
+      role: "Commander",
+      bio: "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
+    },
+  ])
 
   const getData = async () => {
     const res = await fetch("../src/data.json")
@@ -23,7 +35,8 @@ const Crew = () => {
     getData()
   }, [])
 
-  console.log(dataJson)
+  // console.log(dataJson)
+
   const handleClickOpen = () => {
     setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden")
     setClassNameClose("fixed")
@@ -34,6 +47,17 @@ const Crew = () => {
     setClassNameOpen("block")
   }
 
+  const handleClickCrewNav = e => {
+    setActiveIndex(parseInt(e.target.id))
+    const crewFilter = dataJson.filter((obj, index) => {
+      if (parseInt(e.target.id) === index) {
+        return [obj]
+      }
+    })
+
+    return setActiveCrew(crewFilter)
+  }
+
   return (
     <main className="bg-slate-500">
       <MobileNavbar
@@ -41,7 +65,7 @@ const Crew = () => {
         handleClickFunction={() => handleClickClose()}
       />
 
-      <div className="bg-crew p-7">
+      <div className="bg-crew h-screen p-7">
         <Navbar
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}
@@ -49,14 +73,18 @@ const Crew = () => {
 
         <SectionTitle number="02" />
 
-        {dataJson.map((crew, index) => (
+        {activeCrew.map((crew, index) => (
           <div key={index}>
             <CrewImage imagePath={`./src/${crew.images.png}`} />
 
-            <CrewNav />
+            <CrewNav
+              jsonLength={dataJson.length}
+              activeIndex={activeIndex}
+              onClick={handleClickCrewNav}
+            />
 
             <CrewDescription
-              CrewRole={crew.role.toUpperCase()}
+              crewRole={crew.role.toUpperCase()}
               crewName={crew.name.toUpperCase()}
               crewBio={crew.bio}
             />
