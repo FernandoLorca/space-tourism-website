@@ -16,6 +16,7 @@ const Destination = () => {
   const [classNameOpen, setClassNameOpen] = useState("flex")
   const [classNameClose, setClassNameClose] = useState("hidden")
   const [dataJson, setDataJson] = useState([])
+  const [activeDestination, setActiveDestination] = useState(<Moon />)
 
   const getData = async () => {
     const res = await fetch("../src/data.json")
@@ -28,7 +29,11 @@ const Destination = () => {
     getData()
   }, [])
 
+  console.log(dataJson)
+
   const destinationsNamesArr = dataJson.map(destination => destination.name)
+
+  const destinationsArr = [<Moon />, <Mars />, <Europa />, <Titan />]
 
   const handleClickOpen = () => {
     setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden")
@@ -40,7 +45,7 @@ const Destination = () => {
     setClassNameOpen("block")
   }
 
-  // const handleDestinationNavbarClick = () => {}
+  const handleDestinationNavbarClick = () => {}
 
   return (
     <>
@@ -49,27 +54,34 @@ const Destination = () => {
           hiddenState={classNameClose}
           handleClickFunction={() => handleClickClose()}
         />
+
         <div className="bg-destination p-7">
           <Navbar
             hiddenState={classNameOpen}
             handleClickFunction={() => handleClickOpen()}
           />
 
-          <DestinationPick number="01" />
+          {dataJson.map((destination, index) => (
+            <div key={index}>
+              <DestinationPick number="01" />
 
-          <DestinationImage imagePath="../src/assets/destination/image-moon.png" />
+              <DestinationImage
+                imagePath={`../src/${destination.images.png}`}
+              />
 
-          <DestinationNavbar
-            // onClick={handleDestinationNavbarClick}
-            destinationNameArr={destinationsNamesArr}
-          />
+              <DestinationNavbar
+                onClick={handleDestinationNavbarClick}
+                destinationNameArr={destinationsNamesArr}
+              />
 
-          <DestinationDescription
-            title="MOON"
-            description="See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites."
-          />
+              <DestinationDescription
+                title={destination.name.toUpperCase()}
+                description={destination.description}
+              />
 
-          <DestinationDistance avgNumber="384,400 KM" numberDays="3 DAYS" />
+              <DestinationDistance avgNumber="384,400 KM" numberDays="3 DAYS" />
+            </div>
+          ))}
         </div>
       </main>
     </>
