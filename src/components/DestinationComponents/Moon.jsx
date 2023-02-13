@@ -1,8 +1,8 @@
-import DestinationPick from "./DestinationPick";
-import DestinationImage from "./DestinationImage";
-import DestinationNavbar from "./DestinationNavbar";
-import DestinationDescription from "./DestinationDescription";
-import DestinationDistance from "./DestinationDistance";
+import DestinationPick from "./DestinationPick"
+import DestinationImage from "./DestinationImage"
+import DestinationNavbar from "./DestinationNavbar"
+import DestinationDescription from "./DestinationDescription"
+import DestinationDistance from "./DestinationDistance"
 
 const Moon = () => {
   return (
@@ -23,7 +23,7 @@ sites."
 
       <DestinationDistance avgNumber="384,400 KM" numberDays="3 DAYS" />
     </>
-  );
-};
+  )
+}
 
-export default Moon;
+export default Moon

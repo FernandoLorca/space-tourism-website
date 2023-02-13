@@ -16,7 +16,19 @@ const Destination = () => {
   const [classNameOpen, setClassNameOpen] = useState("flex")
   const [classNameClose, setClassNameClose] = useState("hidden")
   const [dataJson, setDataJson] = useState([])
-  const [activeDestination, setActiveDestination] = useState(<Moon />)
+  const [activeDestination, setActiveDestination] = useState([
+    {
+      name: "Moon",
+      images: {
+        png: "./assets/destination/image-moon.png",
+        webp: "./assets/destination/image-moon.webp",
+      },
+      description:
+        "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
+      distance: "384,400 km",
+      travel: "3 days",
+    },
+  ])
 
   const getData = async () => {
     const res = await fetch("../src/data.json")
@@ -29,11 +41,9 @@ const Destination = () => {
     getData()
   }, [])
 
-  console.log(dataJson)
-
-  const destinationsNamesArr = dataJson.map(destination => destination.name)
-
-  const destinationsArr = [<Moon />, <Mars />, <Europa />, <Titan />]
+  const destinationsNamesArr = dataJson.map(destination =>
+    destination.name.toUpperCase()
+  )
 
   const handleClickOpen = () => {
     setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden")
@@ -45,7 +55,15 @@ const Destination = () => {
     setClassNameOpen("block")
   }
 
-  const handleDestinationNavbarClick = () => {}
+  const handleDestinationNavbarClick = e => {
+    dataJson.filter(destinationName => {
+      if (e.target.innerText === destinationName.name.toUpperCase()) {
+        return setActiveDestination([destinationName])
+      }
+    })
+  }
+
+  console.log(activeDestination)
 
   return (
     <>
@@ -61,7 +79,7 @@ const Destination = () => {
             handleClickFunction={() => handleClickOpen()}
           />
 
-          {dataJson.map((destination, index) => (
+          {activeDestination.map((destination, index) => (
             <div key={index}>
               <DestinationPick number="01" />
 
@@ -79,7 +97,10 @@ const Destination = () => {
                 description={destination.description}
               />
 
-              <DestinationDistance avgNumber="384,400 KM" numberDays="3 DAYS" />
+              <DestinationDistance
+                avgNumber={destination.distance.toUpperCase()}
+                numberDays={destination.travel.toUpperCase()}
+              />
             </div>
           ))}
         </div>
