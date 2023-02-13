@@ -41,6 +41,7 @@ nav {
 p {
   font-family: "Barlow Condensed", sans-serif;
   font-size: 1.8rem;
+  letter-spacing: 0.08rem;
 }
 
 .bg-mobile {
@@ -52,6 +53,13 @@ p {
 
 .bg-destination {
   background: url("./assets/destination/background-destination-tablet.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-crew {
+  background: url("./assets/crew/background-crew-tablet.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

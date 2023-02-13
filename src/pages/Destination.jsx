@@ -2,12 +2,8 @@ import { useState, useEffect } from "react"
 
 import Navbar from "../components/navbar/Navbar"
 import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar"
-import Moon from "../components/DestinationComponents/Moon"
-import Mars from "../components/DestinationComponents/Mars"
-import Europa from "../components/DestinationComponents/Europa"
-import Titan from "../components/DestinationComponents/Titan"
 import DestinationNavbar from "../components/DestinationComponents/DestinationNavbar"
-import DestinationPick from "../components/DestinationComponents/DestinationPick"
+import SectionTitle from "../components/SectionTitle"
 import DestinationImage from "../components/DestinationComponents/DestinationImage"
 import DestinationDescription from "../components/DestinationComponents/DestinationDescription"
 import DestinationDistance from "../components/DestinationComponents/DestinationDistance"
@@ -66,46 +62,41 @@ const Destination = () => {
   console.log(activeDestination)
 
   return (
-    <>
-      <main>
-        <MobileNavbar
-          hiddenState={classNameClose}
-          handleClickFunction={() => handleClickClose()}
+    <main>
+      <MobileNavbar
+        hiddenState={classNameClose}
+        handleClickFunction={() => handleClickClose()}
+      />
+
+      <div className="bg-destination p-7">
+        <Navbar
+          hiddenState={classNameOpen}
+          handleClickFunction={() => handleClickOpen()}
         />
+        <SectionTitle number="01" />
 
-        <div className="bg-destination p-7">
-          <Navbar
-            hiddenState={classNameOpen}
-            handleClickFunction={() => handleClickOpen()}
-          />
+        {activeDestination.map((destination, index) => (
+          <div key={index}>
+            <DestinationImage imagePath={`../src/${destination.images.png}`} />
 
-          {activeDestination.map((destination, index) => (
-            <div key={index}>
-              <DestinationPick number="01" />
+            <DestinationNavbar
+              onClick={handleDestinationNavbarClick}
+              destinationNameArr={destinationsNamesArr}
+            />
 
-              <DestinationImage
-                imagePath={`../src/${destination.images.png}`}
-              />
+            <DestinationDescription
+              title={destination.name.toUpperCase()}
+              description={destination.description}
+            />
 
-              <DestinationNavbar
-                onClick={handleDestinationNavbarClick}
-                destinationNameArr={destinationsNamesArr}
-              />
-
-              <DestinationDescription
-                title={destination.name.toUpperCase()}
-                description={destination.description}
-              />
-
-              <DestinationDistance
-                avgNumber={destination.distance.toUpperCase()}
-                numberDays={destination.travel.toUpperCase()}
-              />
-            </div>
-          ))}
-        </div>
-      </main>
-    </>
+            <DestinationDistance
+              avgNumber={destination.distance.toUpperCase()}
+              numberDays={destination.travel.toUpperCase()}
+            />
+          </div>
+        ))}
+      </div>
+    </main>
   )
 }
 
