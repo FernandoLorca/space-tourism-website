@@ -73,7 +73,7 @@ const Destination = () => {
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}
         />
-        <SectionTitle number="01" />
+        <SectionTitle number="01" text="PICK YOUR DESTINATION" />
 
         {activeDestination.map((destination, index) => (
           <div key={index}>

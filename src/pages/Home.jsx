@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState } from "react"
 
-import Navbar from "../components/navbar/Navbar";
-import Hero from "../components/home/Hero";
-import Explore from "../components/home/Explore";
-import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar";
+import Navbar from "../components/navbar/Navbar"
+import Hero from "../components/home/Hero"
+import Explore from "../components/home/Explore"
+import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar"
 
 const Home = () => {
-  const [classNameOpen, setClassNameOpen] = useState("flex");
-  const [classNameClose, setClassNameClose] = useState("hidden");
+  const [classNameOpen, setClassNameOpen] = useState("flex")
+  const [classNameClose, setClassNameClose] = useState("hidden")
 
   const handleClickOpen = () => {
-    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden");
-    setClassNameClose("fixed");
-  };
+    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden")
+    setClassNameClose("fixed")
+  }
 
   const handleClickClose = () => {
-    setClassNameClose(classNameClose === "hidden" ? "" : "hidden");
-    setClassNameOpen("block");
-  };
+    setClassNameClose(classNameClose === "hidden" ? "" : "hidden")
+    setClassNameOpen("block")
+  }
 
   return (
     <>
@@ -31,7 +31,7 @@ const Home = () => {
         handleClickFunction={() => handleClickClose()}
       />
 
-      <div className="bg-mobile p-7">
+      <div className="bg-mobile h-screen p-7">
         <Navbar
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}
@@ -43,7 +43,7 @@ const Home = () => {
         </main>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

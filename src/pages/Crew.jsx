@@ -71,7 +71,7 @@ const Crew = () => {
           handleClickFunction={() => handleClickOpen()}
         />
 
-        <SectionTitle number="02" />
+        <SectionTitle number="02" text="MEET YOUR CREW" />
 
         {activeCrew.map((crew, index) => (
           <div key={index}>
