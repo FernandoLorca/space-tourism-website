@@ -11,6 +11,18 @@ const Technology = () => {
   const [classNameOpen, setClassNameOpen] = useState('flex')
   const [classNameClose, setClassNameClose] = useState('hidden')
   const [dataJson, setDataJson] = useState([])
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeTechnology, setActiveTechnology] = useState([
+    {
+      name: 'Launch vehicle',
+      images: {
+        portrait: './assets/technology/image-launch-vehicle-portrait.jpg',
+        landscape: './assets/technology/image-launch-vehicle-landscape.jpg',
+      },
+      description:
+        "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
+    },
+  ])
 
   const getData = async () => {
     const res = await fetch('../src/data.json')
@@ -23,8 +35,6 @@ const Technology = () => {
     getData()
   }, [])
 
-  console.log(dataJson)
-
   const handleClickOpen = () => {
     setClassNameOpen(classNameOpen === 'hidden' ? '' : 'hidden')
     setClassNameClose('fixed')
@@ -35,8 +45,17 @@ const Technology = () => {
     setClassNameOpen('block')
   }
 
+  const handleClickTechnologyNav = e => {
+    setActiveIndex(parseInt(e.target.id))
+    dataJson.filter((technology, index) => {
+      if (parseInt(e.target.id) === index) {
+        setActiveTechnology([technology])
+      }
+    })
+  }
+
   return (
-    <main className="bg-crew">
+    <main className="bg-crew h-screen">
       <MobileNavbar
         hiddenState={classNameClose}
         handleClickFunction={() => handleClickClose()}
@@ -51,12 +70,16 @@ const Technology = () => {
         <SectionTitle number="03" text="SPACE LAUNCH 01" />
       </div>
 
-      {dataJson.map((technology, index) => (
+      {activeTechnology.map((technology, index) => (
         <div key={index}>
           <TechnologyImage imagePath={`./src/${technology.images.landscape}`} />
 
           <div className="px-7">
-            <TechnologyNav />
+            <TechnologyNav
+              onClick={handleClickTechnologyNav}
+              dataJson={dataJson}
+              activeIndex={activeIndex}
+            />
 
             <TechnologyDescription
               name={technology.name.toUpperCase()}
