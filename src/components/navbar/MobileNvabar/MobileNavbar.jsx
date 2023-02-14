@@ -1,14 +1,14 @@
-import NavbarAnchor from "./NavbarAnchor"
+import NavbarAnchor from './NavbarAnchor'
 
 const MobileNavbar = ({ hiddenState, handleClickFunction }) => {
   return (
     <div className="relative">
       <div
-        className={`h-screen w-screen absolute z-10 cursor-pointer ${hiddenState}`}
+        className={`h-screen w-screen absolute z-20 cursor-pointer ${hiddenState}`}
         onClick={handleClickFunction}
       ></div>
       <div
-        className={`p-5 navbar fixed right-0 w-4/5 h-full pt-14 px-12 z-20 ${hiddenState}`}
+        className={`p-5 navbar fixed right-0 w-4/5 h-full pt-14 px-12 z-30 ${hiddenState}`}
       >
         <div
           onClick={handleClickFunction}

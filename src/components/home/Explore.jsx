@@ -1,22 +1,36 @@
-import { useState } from "react"
+import { useState } from 'react'
+
+import { Link } from 'react-router-dom'
 
 const Explore = () => {
-  const [className, setClassName] = useState("hidden")
+  const [hover, setHover] = useState('')
 
-  const handleExpansion = () => setClassName("")
+  const handlerExploreHover = () => setHover(true)
+  const handlerExploreLeave = () => setHover(false)
 
   return (
     <div className="flex justify-center">
       <div
         onClick={() => handleExpansion()}
-        className="w-56 h-56 rounded-full flex justify-center items-center bg-white cursor-pointer"
+        className="relative flex justify-center items-center cursor-pointer"
       >
         <div
-          className={`bg-slate-200 opacity-20 rounded-full w-96 h-96 ${
-            className ? "hidden" : ""
+          className={`bg-slate-900 rounded-full absolute w-96 h-96 z-10 opacity-50 transition- ${
+            hover ? '' : 'hidden'
           }`}
         ></div>
-        <p className="bellefairFont text-slate-800 text-4xl">EXPLORE</p>
+        <Link
+          to="/destination"
+          className="bellefairFont text-slate-800 text-4xl flex justify-center items-center"
+        >
+          <div
+            className="absolute z-20 bg-white w-56 h-56 flex justify-center items-center rounded-full"
+            onMouseOver={handlerExploreHover}
+            onMouseLeave={handlerExploreLeave}
+          >
+            EXPLORE
+          </div>
+        </Link>
       </div>
     </div>
   )
