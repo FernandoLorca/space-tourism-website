@@ -59,7 +59,7 @@ const Technology = () => {
             <TechnologyNav />
 
             <TechnologyDescription
-              name="THE TERMINOLOGY..."
+              name={technology.name.toUpperCase()}
               description={technology.description}
             />
           </div>
