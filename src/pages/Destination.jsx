@@ -1,33 +1,34 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
-import Navbar from "../components/navbar/Navbar"
-import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar"
-import DestinationNavbar from "../components/DestinationComponents/DestinationNavbar"
-import SectionTitle from "../components/SectionTitle"
-import DestinationImage from "../components/DestinationComponents/DestinationImage"
-import DestinationDescription from "../components/DestinationComponents/DestinationDescription"
-import DestinationDistance from "../components/DestinationComponents/DestinationDistance"
+import Navbar from '../components/navbar/Navbar'
+import MobileNavbar from '../components/navbar/MobileNvabar/MobileNavbar'
+import DestinationNavbar from '../components/DestinationComponents/DestinationNavbar'
+import SectionTitle from '../components/SectionTitle'
+import DestinationImage from '../components/DestinationComponents/DestinationImage'
+import DestinationDescription from '../components/DestinationComponents/DestinationDescription'
+import DestinationDistance from '../components/DestinationComponents/DestinationDistance'
 
 const Destination = () => {
-  const [classNameOpen, setClassNameOpen] = useState("flex")
-  const [classNameClose, setClassNameClose] = useState("hidden")
+  const [classNameOpen, setClassNameOpen] = useState('flex')
+  const [classNameClose, setClassNameClose] = useState('hidden')
   const [dataJson, setDataJson] = useState([])
+  const [activeIndex, setActiveIndex] = useState(0)
   const [activeDestination, setActiveDestination] = useState([
     {
-      name: "Moon",
+      name: 'Moon',
       images: {
-        png: "./assets/destination/image-moon.png",
-        webp: "./assets/destination/image-moon.webp",
+        png: './assets/destination/image-moon.png',
+        webp: './assets/destination/image-moon.webp',
       },
       description:
-        "See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.",
-      distance: "384,400 km",
-      travel: "3 days",
+        'See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.',
+      distance: '384,400 km',
+      travel: '3 days',
     },
   ])
 
   const getData = async () => {
-    const res = await fetch("../src/data.json")
+    const res = await fetch('../src/data.json')
     const data = await res.json()
 
     setDataJson(data.destinations)
@@ -42,24 +43,25 @@ const Destination = () => {
   )
 
   const handleClickOpen = () => {
-    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden")
-    setClassNameClose("fixed")
+    setClassNameOpen(classNameOpen === 'hidden' ? '' : 'hidden')
+    setClassNameClose('fixed')
   }
 
   const handleClickClose = () => {
-    setClassNameClose(classNameClose === "hidden" ? "" : "hidden")
-    setClassNameOpen("block")
+    setClassNameClose(classNameClose === 'hidden' ? '' : 'hidden')
+    setClassNameOpen('block')
   }
 
   const handleDestinationNavbarClick = e => {
     dataJson.filter(destinationName => {
       if (e.target.innerText === destinationName.name.toUpperCase()) {
-        return setActiveDestination([destinationName])
+        setActiveDestination([destinationName])
+        setActiveIndex(
+          destinationsNamesArr.indexOf(destinationName.name.toUpperCase())
+        )
       }
     })
   }
-
-  console.log(activeDestination)
 
   return (
     <main>
@@ -82,6 +84,7 @@ const Destination = () => {
             <DestinationNavbar
               onClick={handleDestinationNavbarClick}
               destinationNameArr={destinationsNamesArr}
+              activeIndex={activeIndex}
             />
 
             <DestinationDescription
