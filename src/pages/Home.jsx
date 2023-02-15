@@ -1,24 +1,24 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import Navbar from '../components/navbar/MobileNvabar/Navbar'
-import TabletNavbar from '../components/navbar/TabletNavbar/TabletNavbar'
-import Hero from '../components/home/Hero'
-import Explore from '../components/home/Explore'
-import MobileNavbar from '../components/navbar/MobileNvabar/MobileNavbar'
+import Navbar from "../components/navbar/MobileNvabar/Navbar";
+import TabletNavbar from "../components/navbar/TabletNavbar/TabletNavbar";
+import Hero from "../components/home/Hero";
+import Explore from "../components/home/Explore";
+import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar";
 
 const Home = () => {
-  const [classNameOpen, setClassNameOpen] = useState('flex')
-  const [classNameClose, setClassNameClose] = useState('hidden')
+  const [classNameOpen, setClassNameOpen] = useState("flex");
+  const [classNameClose, setClassNameClose] = useState("hidden");
 
   const handleClickOpen = () => {
-    setClassNameOpen(classNameOpen === 'hidden' ? '' : 'hidden')
-    setClassNameClose('fixed')
-  }
+    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden");
+    setClassNameClose("fixed");
+  };
 
   const handleClickClose = () => {
-    setClassNameClose(classNameClose === 'hidden' ? '' : 'hidden')
-    setClassNameOpen('block')
-  }
+    setClassNameClose(classNameClose === "hidden" ? "" : "hidden");
+    setClassNameOpen("block");
+  };
 
   return (
     <>
@@ -40,7 +40,7 @@ const Home = () => {
         </main>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
