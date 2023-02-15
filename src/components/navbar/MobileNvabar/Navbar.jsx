@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Navbar = ({ handleClickFunction, hiddenState }) => {
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex justify-between items-center md:hidden">
       <div>
         <Link to="/" className="hover:opacity-75">
           <img src="./src/assets/shared/logo.svg" alt="" />

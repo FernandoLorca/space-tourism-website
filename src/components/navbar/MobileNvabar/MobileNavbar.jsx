@@ -2,7 +2,7 @@ import NavbarAnchor from './NavbarAnchor'
 
 const MobileNavbar = ({ hiddenState, handleClickFunction }) => {
   return (
-    <div className="relative">
+    <div className="relative md:hidden">
       <div
         className={`h-screen w-screen absolute z-20 cursor-pointer ${hiddenState}`}
         onClick={handleClickFunction}

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import Navbar from '../components/navbar/MobileNvabar/Navbar'
+import TabletNavbar from '../components/navbar/TabletNavbar/TabletNavbar'
 import Hero from '../components/home/Hero'
 import Explore from '../components/home/Explore'
 import MobileNavbar from '../components/navbar/MobileNvabar/MobileNavbar'
@@ -31,6 +32,7 @@ const Home = () => {
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}
         />
+        <TabletNavbar />
 
         <main className="text-white text-center">
           <Hero />
