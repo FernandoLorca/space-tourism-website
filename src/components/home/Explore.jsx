@@ -11,7 +11,7 @@ const Explore = () => {
   return (
     <div className="flex justify-center">
       <div
-        onClick={() => handleExpansion()}
+        onClick={() => handlerExploreHover()}
         className="relative flex justify-center items-center cursor-pointer"
       >
         <div
