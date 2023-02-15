@@ -1,60 +1,60 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 
-import MobileNavbar from '../components/navbar/MobileNvabar/MobileNavbar'
-import Navbar from '../components/navbar/Navbar'
-import SectionTitle from '../components/SectionTitle'
-import CrewImage from '../components/CrewComponents/CrewImage'
-import CrewNav from '../components/CrewComponents/CrewNav'
-import CrewDescription from '../components/CrewComponents/CrewDescription'
+import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar";
+import Navbar from "../components/navbar/Navbar";
+import SectionTitle from "../components/SectionTitle";
+import CrewImage from "../components/CrewComponents/CrewImage";
+import CrewNav from "../components/CrewComponents/CrewNav";
+import CrewDescription from "../components/CrewComponents/CrewDescription";
 
 const Crew = () => {
-  const [classNameOpen, setClassNameOpen] = useState('flex')
-  const [classNameClose, setClassNameClose] = useState('hidden')
-  const [dataJson, setDataJson] = useState([])
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [classNameOpen, setClassNameOpen] = useState("flex");
+  const [classNameClose, setClassNameClose] = useState("hidden");
+  const [dataJson, setDataJson] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [activeCrew, setActiveCrew] = useState([
     {
-      name: 'Douglas Hurley',
+      name: "Douglas Hurley",
       images: {
-        png: './assets/crew/image-douglas-hurley.png',
-        webp: './assets/crew/image-douglas-hurley.webp',
+        png: "./assets/crew/image-douglas-hurley.png",
+        webp: "./assets/crew/image-douglas-hurley.webp",
       },
-      role: 'Commander',
-      bio: 'Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.',
+      role: "Commander",
+      bio: "Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.",
     },
-  ])
+  ]);
 
   const getData = async () => {
-    const res = await fetch('../src/data.json')
-    const data = await res.json()
+    const res = await fetch("../src/data.json");
+    const data = await res.json();
 
-    setDataJson(data.crew)
-  }
+    setDataJson(data.crew);
+  };
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   const handleClickOpen = () => {
-    setClassNameOpen(classNameOpen === 'hidden' ? '' : 'hidden')
-    setClassNameClose('fixed')
-  }
+    setClassNameOpen(classNameOpen === "hidden" ? "" : "hidden");
+    setClassNameClose("fixed");
+  };
 
   const handleClickClose = () => {
-    setClassNameClose(classNameClose === 'hidden' ? '' : 'hidden')
-    setClassNameOpen('block')
-  }
+    setClassNameClose(classNameClose === "hidden" ? "" : "hidden");
+    setClassNameOpen("block");
+  };
 
-  const handleClickCrewNav = e => {
-    setActiveIndex(parseInt(e.target.id))
+  const handleClickCrewNav = (e) => {
+    setActiveIndex(parseInt(e.target.id));
     const crewFilter = dataJson.filter((obj, index) => {
       if (parseInt(e.target.id) === index) {
-        return [obj]
+        return [obj];
       }
-    })
+    });
 
-    return setActiveCrew(crewFilter)
-  }
+    return setActiveCrew(crewFilter);
+  };
 
   return (
     <main className="bg-slate-500">
@@ -63,7 +63,7 @@ const Crew = () => {
         handleClickFunction={() => handleClickClose()}
       />
 
-      <div className="bg-crew h-screen p-7">
+      <div className="bg-crew p-7">
         <Navbar
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}
@@ -90,7 +90,7 @@ const Crew = () => {
         ))}
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Crew
+export default Crew;
