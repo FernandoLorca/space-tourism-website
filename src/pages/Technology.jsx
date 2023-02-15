@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import Navbar from '../components/navbar/Navbar'
+import Navbar from '../components/navbar/MobileNvabar/Navbar'
 import MobileNavbar from '../components/navbar/MobileNvabar/MobileNavbar'
 import SectionTitle from '../components/SectionTitle'
 import TechnologyImage from '../components/TechnologyComponents/TechnologyImage'

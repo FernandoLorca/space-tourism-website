@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import MobileNavbar from '../components/navbar/MobileNvabar/MobileNavbar'
-import Navbar from '../components/navbar/Navbar'
+import Navbar from '../components/navbar/MobileNvabar/Navbar'
 import SectionTitle from '../components/SectionTitle'
 import CrewImage from '../components/CrewComponents/CrewImage'
 import CrewNav from '../components/CrewComponents/CrewNav'

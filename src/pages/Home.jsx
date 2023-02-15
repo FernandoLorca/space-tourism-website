@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import Navbar from '../components/navbar/Navbar'
+import Navbar from '../components/navbar/MobileNvabar/Navbar'
 import Hero from '../components/home/Hero'
 import Explore from '../components/home/Explore'
 import MobileNavbar from '../components/navbar/MobileNvabar/MobileNavbar'
