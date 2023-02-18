@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 import Navbar from "../components/navbar/MobileNvabar/Navbar";
+import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar";
 import TabletNavbar from "../components/navbar/TabletNavbar/TabletNavbar";
 import Hero from "../components/home/Hero";
 import Explore from "../components/home/Explore";
-import MobileNavbar from "../components/navbar/MobileNvabar/MobileNavbar";
 
 const Home = () => {
   const [classNameOpen, setClassNameOpen] = useState("flex");
