@@ -56,7 +56,7 @@ const Technology = () => {
   };
 
   return (
-    <main className="bg-crew">
+    <main className="bg-technology">
       <MobileNavbar
         hiddenState={classNameClose}
         handleClickFunction={() => handleClickClose()}
