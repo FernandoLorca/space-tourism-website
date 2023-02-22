@@ -1,6 +1,6 @@
 const CrewDescription = ({ crewRole, crewName, crewBio }) => {
   return (
-    <div className="text-center text-indigo-200 flex flex-col items-center">
+    <div className="text-center text-indigo-200 flex flex-col items-center min-h-72">
       <div>
         <h4 className="text-3xl">{crewRole}</h4>
       </div>

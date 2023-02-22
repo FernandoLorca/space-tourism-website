@@ -63,7 +63,7 @@ const Crew = () => {
         handleClickFunction={() => handleClickClose()}
       />
 
-      <div className="bg-crew p-7">
+      <div className="bg-crew p-7 md:p-0 md:px-7 md:pt-7">
         <Navbar
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}
