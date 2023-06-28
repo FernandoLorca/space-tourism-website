@@ -1,6 +1,6 @@
-import CrewImage from "../CrewMobile/CrewImage";
-import CrewNav from "../CrewMobile/CrewNav";
-import CrewDescription from "../CrewMobile/CrewDescription";
+import CrewImage from '../CrewMobile/CrewImage';
+import CrewNav from '../CrewMobile/CrewNav';
+import CrewDescription from '../CrewMobile/CrewDescription';
 
 const CrewTablet = ({
   activeCrew,

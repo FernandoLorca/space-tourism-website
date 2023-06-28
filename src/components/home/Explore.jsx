@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const Explore = () => {
-  const [hover, setHover] = useState('')
+  const [hover, setHover] = useState('');
 
-  const handlerExploreHover = () => setHover(true)
-  const handlerExploreLeave = () => setHover(false)
+  const handlerExploreHover = () => setHover(true);
+  const handlerExploreLeave = () => setHover(false);
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center h-full">
       <div
         onClick={() => handlerExploreHover()}
         className="relative flex justify-center items-center cursor-pointer"
@@ -33,7 +33,7 @@ const Explore = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Explore
+export default Explore;

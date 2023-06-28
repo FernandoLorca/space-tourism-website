@@ -1,6 +1,6 @@
 const TechnologyDescription = ({ name, description }) => {
   return (
-    <div className="text-white">
+    <div className="text-white w-6/12">
       <h4 className="text-indigo-200 text-center text-3xl">
         THE TERMINOLOGY...
       </h4>
@@ -9,7 +9,7 @@ const TechnologyDescription = ({ name, description }) => {
 
       <p className="py-10 text-center text-indigo-200">{description}</p>
     </div>
-  )
-}
+  );
+};
 
-export default TechnologyDescription
+export default TechnologyDescription;
