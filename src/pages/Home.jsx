@@ -27,7 +27,7 @@ const Home = () => {
         handleClickFunction={() => handleClickClose()}
       />
 
-      <div className="bg-home-desktop p-7 h-screen">
+      <div className="bg-home-desktop p-7 md:h-screen">
         <Navbar
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}

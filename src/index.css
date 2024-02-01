@@ -45,35 +45,35 @@ p {
 }
 
 .bg-home-desktop {
-  background: url('./assets/home/background-home-desktop.jpg');
+  background: url('/home/background-home-desktop.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .bg-mobile {
-  background: url('./assets/home/background-home-desktop.jpg');
+  background: url('/home/background-home-desktop.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .bg-destination {
-  background: url('./assets/destination/background-destination-desktop.jpg');
+  background: url('/destination/background-destination-desktop.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .bg-crew {
-  background: url('./assets/crew/background-crew-desktop.jpg');
+  background: url('/crew/background-crew-desktop.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
 .bg-technology {
-  background: url('./assets/technology/background-technology-desktop.jpg');
+  background: url('/technology/background-technology-desktop.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -84,7 +84,10 @@ p {
 }
 
 .imgCrewHigh {
-  height: 35rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 .navbar {

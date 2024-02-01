@@ -1,6 +1,6 @@
-import CrewImage from "./CrewImage";
-import CrewNav from "./CrewNav";
-import CrewDescription from "./CrewDescription";
+import CrewImage from './CrewImage';
+import CrewNav from './CrewNav';
+import CrewDescription from './CrewDescription';
 
 const CrewMobile = ({
   activeCrew,
@@ -10,7 +10,7 @@ const CrewMobile = ({
 }) => {
   return activeCrew.map((crew, index) => (
     <div key={index}>
-      <CrewImage imagePath={`./src/${crew.images.png}`} />
+      <CrewImage imagePath={`${crew.images.png}`} />
 
       <CrewNav
         jsonLength={dataJson.length}

@@ -17,8 +17,8 @@ const Technology = () => {
     {
       name: 'Launch vehicle',
       images: {
-        portrait: './assets/technology/image-launch-vehicle-portrait.jpg',
-        landscape: './assets/technology/image-launch-vehicle-landscape.jpg',
+        portrait: '/technology/image-launch-vehicle-portrait.jpg',
+        landscape: '/technology/image-launch-vehicle-landscape.jpg',
       },
       description:
         "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!",
@@ -26,7 +26,7 @@ const Technology = () => {
   ]);
 
   const getData = async () => {
-    const res = await fetch('../src/data.json');
+    const res = await fetch('/data.json');
     const data = await res.json();
 
     setDataJson(data.technology);
@@ -56,7 +56,7 @@ const Technology = () => {
   };
 
   return (
-    <main className="bg-technology h-screen">
+    <main className="bg-technology">
       <MobileNavbar
         hiddenState={classNameClose}
         handleClickFunction={() => handleClickClose()}
@@ -78,7 +78,7 @@ const Technology = () => {
 
       {activeTechnology.map((technology, index) => (
         <div key={index}>
-          <TechnologyImage imagePath={`./src/${technology.images.landscape}`} />
+          <TechnologyImage imagePath={`${technology.images.landscape}`} />
 
           <div className="px-7">
             <TechnologyNav

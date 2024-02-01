@@ -22,7 +22,7 @@ const CrewTablet = ({
         onClick={handleClickCrewNav}
       />
 
-      <CrewImage imagePath={`./src/${crew.images.png}`} />
+      <CrewImage imagePath={`${crew.images.png}`} />
     </div>
   ));
 };

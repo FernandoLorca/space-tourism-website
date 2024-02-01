@@ -16,8 +16,8 @@ const Crew = () => {
     {
       name: 'Douglas Hurley',
       images: {
-        png: './assets/crew/image-douglas-hurley.png',
-        webp: './assets/crew/image-douglas-hurley.webp',
+        png: '/crew/image-douglas-hurley.png',
+        webp: '/crew/image-douglas-hurley.webp',
       },
       role: 'Commander',
       bio: 'Douglas Gerald Hurley is an American engineer, former Marine Corps pilot and former NASA astronaut. He launched into space for the third time as commander of Crew Dragon Demo-2.',
@@ -25,7 +25,7 @@ const Crew = () => {
   ]);
 
   const getData = async () => {
-    const res = await fetch('../src/data.json');
+    const res = await fetch('/data.json');
     const data = await res.json();
 
     setDataJson(data.crew);
@@ -63,14 +63,14 @@ const Crew = () => {
         handleClickFunction={() => handleClickClose()}
       />
 
-      <div className="bg-crew p-7 md:p-0 md:px-7 md:pt-7 h-screen flex flex-col justify-between">
+      <div className="bg-crew p-7 md:p-0 md:px-7 sm:h-full md:h-screen md:pt-7 flex flex-col justify-between">
         <Navbar
           hiddenState={classNameOpen}
           handleClickFunction={() => handleClickOpen()}
         />
         <TabletNavbar />
 
-        <div className="flex justify-center mb-20">
+        <div className="flex justify-center">
           <SectionTitle
             number="02"
             text="MEET YOUR CREW"
@@ -85,7 +85,7 @@ const Crew = () => {
             handleClickCrewNav={handleClickCrewNav}
           />
         </div>
-        <div className="sm:hidden md:block">
+        <div className="hidden md:block">
           <CrewTablet
             activeCrew={activeCrew}
             activeIndex={activeIndex}
